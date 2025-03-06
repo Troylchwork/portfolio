@@ -1,23 +1,26 @@
 import {
-    Box,
-    Card,
+    useTheme,
+    useMediaQuery,
     CardContent,
     CardMedia,
     Stack,
     Typography,
 } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import {
-    CardStyles,
-    Title,
-    SubTitle,
-    List,
     DefaultCard,
     HomeCard,
     HomeTitle,
     HomeSubTitle,
     BlueDivider,
+    ResumeCard,
+    ResumeCardContent,
+    ButtonGroup
 } from "./styles";
-import { color } from "three/webgpu";
+import { PROJECTS_PATH, RESUME_PATH } from "../../constants/paths";
+import CustomeTypography from "../CustomeTypography";
+import CustomeButton from "../../components/CustomeButton";
+
 export default function Cards({
     title,
     subTitle,
@@ -28,42 +31,49 @@ export default function Cards({
     children,
     ...props
 }) {
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
     switch (variant) {
         case "home":
             return (
                 <HomeCard {...props}>
-                    <Stack sx={{ gap: 4, alignItems: "center",textAlign:'center' }}>
+                    <Stack sx={{ gap: 4, alignItems: "center", textAlign: 'center' }}>
                         {children}
                         <HomeTitle>{title}</HomeTitle>
                         <BlueDivider variant="middle" />
                         <HomeSubTitle>{subTitle}</HomeSubTitle>
                     </Stack>
+                    {matches ? <ButtonGroup>
+                        <NavLink to={PROJECTS_PATH}>
+                            <CustomeButton>
+                                Projects
+                            </CustomeButton>
+                        </NavLink>
+                        <NavLink to={RESUME_PATH}>
+                            <CustomeButton variant="outlined">Resume</CustomeButton>
+                        </NavLink>
+                    </ButtonGroup> : null}
+
                 </HomeCard>
             );
         case "resume":
             return (
-                <Card sx={CardStyles}>
-                    <CardContent
-                        sx={{
-                            display: "grid",
-                            gridTemplateColumns: "25% 65%",
-                            gap: "20px",
-                            whiteSpace: "pre-line",
-                            lineHeight: 1.5,
-                        }}
-                    >
+                <ResumeCard>
+                    <ResumeCardContent>
                         <Stack sx={{ gap: "10px" }}>
-                            <Title>{title}</Title>
-                            <SubTitle>{subTitle}</SubTitle>
-                            <div>{companyName}</div>
+                            <CustomeTypography variant="title">{title}</CustomeTypography>
+                            <CustomeTypography variant="subtitle">{subTitle}</CustomeTypography>
+                            <CustomeTypography >{companyName}</CustomeTypography>
                         </Stack>
-                        {children}
-                    </CardContent>
-                </Card>
+                        <CustomeTypography>{children}</CustomeTypography>
+                    </ResumeCardContent>
+                </ResumeCard>
             );
         case "resumeList":
             return (
-                <Card sx={CardStyles}>
+                <ResumeCard>
                     <CardContent
                         sx={{
                             whiteSpace: "pre-line",
@@ -73,7 +83,7 @@ export default function Cards({
                         {/* <List>{Skillslist(children)}</List> */}
                         {children}
                     </CardContent>
-                </Card>
+                </ResumeCard>
             );
         default:
             return (

@@ -11,6 +11,8 @@ import {
 } from "./styles";
 import Cards from "../../components/Cards";
 import CustomeButton from "../../components/CustomeButton";
+import CustomeTypography from "../../components/CustomeTypography";
+import { max } from "three/webgpu";
 
 export default function Resume() {
     const { t, i18n } = useTranslation();
@@ -20,21 +22,23 @@ export default function Resume() {
         return list.map((str, index) => <li key={index}>{str}</li>);
     };
 
-    const handleDownload = () => {
-        const downloadUrl =
-            "https://drive.google.com/u/1/uc?id=1zk2mLMBSRq_nuWBSM0KOpsKuByQQ_VTt&export=download";
-        window.open(downloadUrl);
-    };
+    // const handleDownload = () => {
+    //     const downloadUrl =
+    //         "https://drive.google.com/u/1/uc?id=1zk2mLMBSRq_nuWBSM0KOpsKuByQQ_VTt&export=download";
+    //     window.open(downloadUrl);
+    // };
     return (
-        <Stack sx={{ background: "#F6F4F0", paddingBottom: "5rem" }}>
-            <Header>Resume</Header>
+        <Stack sx={{ background: "#F6F4F0", paddingBottom: "5rem", alignItems: 'center', '& *': { maxWidth: '1080px' } }}>
+            <CustomeTypography variant="h1_center">Resume</CustomeTypography>
             <ContentContainer>
                 <HeaderContainer>
-                    <SubHeader>Work Experience</SubHeader>
+                    <CustomeTypography variant="h2">Work Experience</CustomeTypography>
                     <Stack sx={{ justifyContent: "center" }}>
-                        <CustomeButton onClick={handleDownload}>
-                            Download CV
-                        </CustomeButton>
+                        <a href="https://drive.google.com/u/1/uc?id=1zk2mLMBSRq_nuWBSM0KOpsKuByQQ_VTt&export=download">
+                            <CustomeButton>
+                                Download CV
+                            </CustomeButton>
+                        </a>
                     </Stack>
                 </HeaderContainer>
 
@@ -56,7 +60,7 @@ export default function Resume() {
                         {t("huluCulturalDersction")}
                     </Cards>
                 </CardsContainer>
-                <SubHeader>Educational</SubHeader>
+                <CustomeTypography variant="h2">Educational</CustomeTypography>
                 <CardsContainer>
                     <Cards
                         title="2022"
@@ -75,11 +79,11 @@ export default function Resume() {
                         {t("IVE")}
                     </Cards>
                 </CardsContainer>
-                <SubHeader>Skills</SubHeader>
+                <CustomeTypography variant="h2">Skills</CustomeTypography>
                 <Cards variant="resumeList">
-                    <SubHeader>Technical Skills</SubHeader>
+                    <CustomeTypography variant="h3">Technical Skills</CustomeTypography>
                     <List>{Skillslist(t("technicalSkill"))}</List>
-                    <SubHeader>Languages</SubHeader>
+                    <CustomeTypography variant="h3">Languages</CustomeTypography>
                     <List>{Skillslist(t("languagesSkill"))}</List>
                 </Cards>
             </ContentContainer>

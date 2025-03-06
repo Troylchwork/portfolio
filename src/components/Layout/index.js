@@ -9,7 +9,8 @@ export default function Layout() {
     return (
         <Stack>
             <Header />
-            <Outlet />
+            <Stack sx={{width:'100%'}}><Outlet /></Stack>
+            
             <Footer />
         </Stack>
     );

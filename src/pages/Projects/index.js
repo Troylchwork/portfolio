@@ -7,6 +7,7 @@ import {
     BGSubTitle,
     ProjectContainer,
     Title,
+    BackgroundImg,
 } from "./styles";
 import ProjectCard from "../../components/ProjectCard";
 import InfoCard from "../../components/InfoCard";
@@ -26,16 +27,15 @@ import {
     gameS,
     game2D,
 } from "../../assets/images";
+import CustomeTypography from "../../components/CustomeTypography";
 
 export default function Projects() {
     const { t, i18n } = useTranslation();
     return (
         <Background>
-            <img
+            <BackgroundImg
                 src={forest3}
                 alt="iamge"
-                width={"100%"}
-                style={{ objectFit: "cover", height: "1050px" }}
             />
             <BGTitle>Make to Be Played</BGTitle>
             <BGSubTitle>Game and Web Projects</BGSubTitle>
@@ -53,7 +53,7 @@ export default function Projects() {
                 />
                 <ProjectCard title="More" path={MORE_PATH} img={game2D} />
             </ProjectContainer>
-            <Title>Website</Title>
+            <CustomeTypography variant="h1" sx={{ pt: 2, m: '0rem 2rem' }}>Website</CustomeTypography>
             <Stack sx={{ alignItems: "center", rowGap: "40px", pt: "40px" }}>
                 <InfoCard
                     title="Rebuild Website"

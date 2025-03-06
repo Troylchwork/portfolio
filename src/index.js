@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, BrowserRouter } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import "./index.css";
 import App from "./App";
@@ -18,11 +18,16 @@ const customTheme = createTheme({
         "0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09)",
     boxShadowHover:
         "0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29)",
+    typography: {
+        fontFamily: ['Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'
+        ]
+    }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <HashRouter>
+    <BrowserRouter>
         <I18nextProvider i18n={i18n} defaultNS={"translation"}>
             <ThemeProvider theme={customTheme}>
                 <AlertProvider>
@@ -30,7 +35,7 @@ root.render(
                 </AlertProvider>
             </ThemeProvider>
         </I18nextProvider>
-    </HashRouter>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

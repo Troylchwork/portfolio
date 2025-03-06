@@ -6,11 +6,11 @@ import en from "./locales/en";
 import zh from "./locales/zh";
 
 i18n.use(initReactI18next)
-    .use(LanguageDetector)
-    .use(Backend)
+    // .use(LanguageDetector)
+    // .use(Backend)
     .init({
-        lng: 'zh',
-        fallbackLng: "en",
+        lng: 'en',
+        fallbackLng: "zh",
         resources: {
             en: { translation: en },
             "zh-HK": { translations: zh },

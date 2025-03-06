@@ -1,9 +1,12 @@
 import { styled, Stack, Box } from "@mui/material";
 
-export const BackgroundContainer = styled(Box)({
+export const BackgroundContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     height: "100vh",
-});
+    [theme.breakpoints.down('sm')]: {
+        background: '#F6F4F0',
+    }
+}));
 
 export const BackgroundLeft = styled(Box)(({ theme }) => ({
     background: theme.darkBeige,

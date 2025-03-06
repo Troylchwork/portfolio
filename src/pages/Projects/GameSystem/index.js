@@ -1,11 +1,11 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Divider } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import CustomeBreadcrumbs from "../../../components/CustomeBreadcrumbs";
 import { gameS, preview2 } from "../../../assets/images";
 import { Background, Image, SystemContainer } from "./styles";
 
 export default function GameSystem() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
         <Background>
             <Stack sx={{ margin: "20px" }}>
@@ -17,6 +17,7 @@ export default function GameSystem() {
                         <h1>Npc</h1>
                         <Typography>{t("gameSystem.npc")}</Typography>
                     </SystemContainer>
+                    <Divider sx={{ m: '20px 0px', width: '90%' }} />
                     <SystemContainer marginTop>
                         <Image src={preview2} component="img" />
                         <h1>Preview System</h1>

@@ -1,6 +1,7 @@
-import { styled, Card, Box, Stack } from "@mui/material";
 
-export const CustomCard = styled(Card)(({ theme }) => ({
+import { styled, Card, CardMedia, Box, Stack } from "@mui/material";
+
+export const CustomCard = styled(Card)(({ reverse, theme }) => ({
     display: "flex",
     margin: "20px",
     borderRadius: "10px",
@@ -10,6 +11,29 @@ export const CustomCard = styled(Card)(({ theme }) => ({
     minHeight: "450px",
     boxShadow: theme.boxShadow,
     "&:hover": { boxShadow: theme.boxShadowHover },
+
+    [theme.breakpoints.down("sm")]: {
+        minWidth: "0px",
+        flexDirection: reverse ? "column-reverse" : "column",
+    },
+}));
+
+export const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
+    width: "40%",
+
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+    },
+}));
+
+export const CardCotent = styled(Box)(({ textAlignR, theme }) => ({
+    width: "50%",
+    textAlign: textAlignR ? "end" : "start",
+
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        textAlign: "start",
+    },
 }));
 
 export const TitleContainer = styled(Box)({
@@ -18,12 +42,13 @@ export const TitleContainer = styled(Box)({
     paddingTop: "3rem",
 });
 
-export const TitleContainerRight = styled(Box)({
+export const TitleContainerRight = styled(Box)(({ justifyContentR, theme }) => ({
     display: "flex",
     gap: "2rem",
     paddingTop: "3rem",
-    justifyContent: "end",
-});
+    justifyContent: justifyContentR ? "start" : "end",
+    flexDirection: justifyContentR ? "row-reverse" : "row",
+}));
 
 export const ColorBlock = styled(Stack)(({ theme }) => ({
     background: theme.primary,
@@ -40,3 +65,4 @@ export const Title = styled("div")(({ theme }) => ({
 export const SubTitle = styled("div")({
     fontSize: "20px",
 });
+
