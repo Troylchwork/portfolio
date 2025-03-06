@@ -1,6 +1,6 @@
 import React from "react";
 import { CardActionArea, CardMedia } from "@mui/material";
-import { Title, GradientShadow, SubTitle, CustomCard } from "./styles";
+import { Title, GradientShadow, SubTitle, CustomCard, CustomCardActionArea } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 export default function ProjectCard({ title, subTitle = "", path = "", img }) {
@@ -10,7 +10,7 @@ export default function ProjectCard({ title, subTitle = "", path = "", img }) {
     };
     return (
         <CustomCard>
-            <CardActionArea onClick={handleClick} sx={{ height: "100%" }}>
+            <CustomCardActionArea onClick={handleClick} >
                 <Title>{title}</Title>
                 <SubTitle>{subTitle}</SubTitle>
                 <GradientShadow />
@@ -24,7 +24,7 @@ export default function ProjectCard({ title, subTitle = "", path = "", img }) {
                         height: "100%",
                     }}
                 />
-            </CardActionArea>
+            </CustomCardActionArea>
         </CustomCard>
     );
 }

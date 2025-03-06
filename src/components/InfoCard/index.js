@@ -1,5 +1,5 @@
-import { Card, CardMedia, Box, Stack } from "@mui/material";
-import { forest } from "../../assets/images";
+
+import { useTheme, useMediaQuery, Stack } from "@mui/material";
 import {
     CustomCard,
     TitleContainer,
@@ -7,7 +7,10 @@ import {
     Title,
     ColorBlock,
     SubTitle,
+    CustomCardMedia,
+    CardCotent
 } from "./styles";
+
 
 export default function InfoCard({
     title,
@@ -16,9 +19,13 @@ export default function InfoCard({
     img,
     children,
 }) {
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
     return direction === "left" ? (
-        <CustomCard>
-            <Box sx={{ width: "50%" }}>
+        <CustomCard reverse={matches}>
+            <CardCotent >
                 <TitleContainer>
                     <ColorBlock />
                     <Stack>
@@ -26,35 +33,34 @@ export default function InfoCard({
                         <SubTitle>{subTitle}</SubTitle>
                     </Stack>
                 </TitleContainer>
-                <Stack sx={{ margin: "3rem" }}>{children}</Stack>
-            </Box>
-            <CardMedia
+                <Stack sx={{ margin: "2rem" }}>{children}</Stack>
+            </CardCotent>
+            <CustomCardMedia
                 component="img"
                 image={img}
                 alt="forest"
                 title="ABC"
-                sx={{ width: "40%" }}
-            ></CardMedia>
+            ></CustomCardMedia>
         </CustomCard>
     ) : (
         <CustomCard>
-            <CardMedia
+            <CustomCardMedia
                 component="img"
                 image={img}
                 alt="forest"
                 title="ABC"
-                sx={{ width: "40%" }}
-            ></CardMedia>
-            <Box sx={{ width: "50%", textAlign: "end" }}>
-                <TitleContainerRight>
+            ></CustomCardMedia>
+            <CardCotent textAlignR={matches}>
+                <TitleContainerRight justifyContentR={matches}>
                     <Stack>
                         <Title>{title}</Title>
                         <SubTitle>{subTitle}</SubTitle>
                     </Stack>
                     <ColorBlock />
                 </TitleContainerRight>
-                <Stack sx={{ margin: "3rem" }}>{children}</Stack>
-            </Box>
+                <Stack sx={{ margin: "2rem" }}>{children}</Stack>
+            </CardCotent>
         </CustomCard>
     );
 }
+

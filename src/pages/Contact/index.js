@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { ForomContainer, Header, Background, Control } from "./styles";
+import { Form, FormContainer, Header, Background, Control } from "./styles";
 import { useAlertContext } from "../../context/alertContext";
 import AlertDialog from "../../components/AlertDialog";
 import useSubmit from "../../hooks/useSubmit";
@@ -54,16 +54,9 @@ export default function Contact() {
     return (
         <Background>
             <Header>Let's talk</Header>
-            <ForomContainer>
-                <form
+            <FormContainer>
+                <Form
                     onSubmit={formik.handleSubmit}
-                    style={{
-                        display: "grid",
-                        width: "600px",
-                        height: "800px",
-                        background: "white",
-                        padding: "60px",
-                    }}
                 >
                     <Control
                         variant="standard"
@@ -134,7 +127,7 @@ export default function Contact() {
                         <Button
                             type="submit"
                             variant="contained"
-                            sx={{ height: "60px", width: "400px" }}
+                            sx={{ height: "60px", width: "10rem" }}
                             disabled={isLoading}
                             startIcon={
                                 isLoading ? (
@@ -145,8 +138,8 @@ export default function Contact() {
                             {isLoading ? "" : "Submit"}
                         </Button>
                     </Stack>
-                </form>
-            </ForomContainer>
+                </Form>
+            </FormContainer>
             <AlertDialog />
         </Background>
     );

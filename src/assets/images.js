@@ -37,6 +37,7 @@ import store3 from "./images/Store1_3.jpg";
 import storeScifi from "./images/Store2_1.jpg";
 import storeScifi2 from "./images/Store2_2.jpg";
 import storeScifi3 from "./images/Store2_3.jpg";
+import headicon from "./images/headicon.jpg"
 
 export {
     gameS,
@@ -78,4 +79,5 @@ export {
     storeScifi,
     storeScifi2,
     storeScifi3,
+    headicon,
 };

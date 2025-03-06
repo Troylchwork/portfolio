@@ -1,13 +1,27 @@
-import { styled, Card } from "@mui/material";
+import { styled, Card, CardActionArea } from "@mui/material";
 
-export const CustomCard = styled(Card)({
+export const CustomCard = styled(Card)(({ theme }) => ({
     borderRadius: "20px",
-    flex: 1,
     height: "25vw",
     margin: "0px 20px",
-});
+    flex: 1,
 
-export const Title = styled("div")({
+    [theme.breakpoints.down('sm')]: {
+        margin: "5px",
+        borderRadius: "10px",
+        flex: '1 0 45%'
+    },
+
+    [theme.breakpoints.up('sm')]: {
+        margin: "0px 10px",
+    }
+}));
+
+export const CustomCardActionArea = styled(CardActionArea)(({ theme }) => ({
+    height: '100%',
+}));
+
+export const Title = styled("div")(({ theme }) => ({
     position: "absolute",
     top: "65%",
     width: "100%",
@@ -19,7 +33,20 @@ export const Title = styled("div")({
     transition: "all 0.35s ease-in-out",
     opacity: 1,
     zIndex: 1,
-});
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+
+    [theme.breakpoints.down('sm')]: {
+        top: "45%",
+        fontSize: "16px",
+        margin: "10px",
+    },
+
+    [theme.breakpoints.down('md')]: {
+        top: "55%",
+        fontSize: "20px",
+        margin: "15px",
+    },
+}));
 
 export const SubTitle = styled("div")({
     position: "absolute",
