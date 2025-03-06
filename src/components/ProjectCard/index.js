@@ -1,5 +1,5 @@
 import React from "react";
-import { CardActionArea, CardMedia } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import { Title, GradientShadow, SubTitle, CustomCard, CustomCardActionArea } from "./styles";
 import { useNavigate } from "react-router-dom";
 

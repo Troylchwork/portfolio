@@ -6,7 +6,6 @@ import {
     BGTitle,
     BGSubTitle,
     ProjectContainer,
-    Title,
     BackgroundImg,
 } from "./styles";
 import ProjectCard from "../../components/ProjectCard";
@@ -30,7 +29,7 @@ import {
 import CustomeTypography from "../../components/CustomeTypography";
 
 export default function Projects() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
         <Background>
             <BackgroundImg

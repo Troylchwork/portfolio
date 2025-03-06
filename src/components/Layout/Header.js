@@ -23,11 +23,6 @@ function Header() {
         setAnchorElNav(null);
     };
 
-    const testfunction = (p) => {
-        console.log(p)
-    };
-
-
     return (
         <AppBar position="static" sx={{ background: 'white', color: 'black', zIndex: 99 }}>
             <Container maxWidth="xl" >

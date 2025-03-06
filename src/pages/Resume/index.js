@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { Box, Stack, Button } from "@mui/material";
+import { Stack } from "@mui/material";
 import {
-    Header,
-    SubHeader,
     ContentContainer,
     HeaderContainer,
     CardsContainer,
@@ -12,21 +10,15 @@ import {
 import Cards from "../../components/Cards";
 import CustomeButton from "../../components/CustomeButton";
 import CustomeTypography from "../../components/CustomeTypography";
-import { max } from "three/webgpu";
 
 export default function Resume() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const Skillslist = (listitem) => {
         const list = listitem.split(", ");
         return list.map((str, index) => <li key={index}>{str}</li>);
     };
 
-    // const handleDownload = () => {
-    //     const downloadUrl =
-    //         "https://drive.google.com/u/1/uc?id=1zk2mLMBSRq_nuWBSM0KOpsKuByQQ_VTt&export=download";
-    //     window.open(downloadUrl);
-    // };
     return (
         <Stack sx={{ background: "#F6F4F0", paddingBottom: "5rem", alignItems: 'center', '& *': { maxWidth: '1080px' } }}>
             <CustomeTypography variant="h1_center">Resume</CustomeTypography>
