@@ -27,7 +27,7 @@ const customTheme = createTheme({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <HashRouter>
+    <BrowserRouter basename="/portfolio">
         <I18nextProvider i18n={i18n} defaultNS={"translation"}>
             <ThemeProvider theme={customTheme}>
                 <AlertProvider>
@@ -35,7 +35,7 @@ root.render(
                 </AlertProvider>
             </ThemeProvider>
         </I18nextProvider>
-    </HashRouter>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

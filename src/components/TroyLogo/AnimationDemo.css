@@ -1,0 +1,16 @@
+/* AnimationDemo.css */
+.docs-demo-html {
+  /* keep the demo container the same size as the original example */
+  width: 304px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stroke-dash trick – everything is driven by JS */
+.line {
+  stroke-dasharray: 0 9999;   /* start hidden */
+  stroke-dashoffset: 0;
+  transition: none;          /* we control it manually */
+}

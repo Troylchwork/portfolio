@@ -1,0 +1,62 @@
+.troy-container {
+  display: inline-block;
+  padding: 20px;
+  background: #000; /* dark bg to see glow */
+  border-radius: 12px;
+}
+
+svg {
+  overflow: visible;
+}
+
+.letter {
+  stroke: #a8e6cf;           /* Light green */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  /* Drawing animation */
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease-in-out forwards;
+  filter: url(#glow);        /* Apply green glow */
+}
+
+/* Stagger delay */
+#T .letter { --i: 0; }
+#R .letter { --i: 1; }
+#O .letter { --i: 2; }
+#Y .letter { --i: 3; }
+
+.letter {
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Pulse glow effect */
+svg .letter {
+  animation: draw 2s ease-in-out forwards,
+             glowPulse 2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.1s), calc(var(--i) * 0.1s + 1s);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: url(#glow) brightness(1);
+  }
+  50% {
+    filter: url(#glow) brightness(1.6);
+  }
+}
+
+/* Loop mode */
+.loop .letter {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

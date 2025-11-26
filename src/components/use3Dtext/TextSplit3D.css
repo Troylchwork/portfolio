@@ -1,0 +1,11 @@
+.demo .large.row { perspective: 600px; position: relative; }
+.demo .text-xl { margin:0; line-height:1.4; font-size:1.5rem; transform-style:preserve-3d; }
+
+.demo .accessible-clone {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  opacity:0; color:var(--hex-green-1,#0f0); outline:1px dotted currentColor;
+  pointer-events:none; z-index:-1; transition:opacity .6s ease;
+}
+.demo .accessible-clone.active { opacity:1; z-index:10; }
+
+.demo .word { display:inline-block; }

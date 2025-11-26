@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from "react-router-dom";
 import { LinkContainer, LinkTitle, LinkSubtitle, NavLinkText } from './styles';
 import { HOME_PATH, RESUME_PATH, PROJECTS_PATH, CONTACT_PATH } from '../../constants/paths';
-
+import TroyLogo from "../../components/TroyLogo";
 
 function Header() {
     const pages = [
