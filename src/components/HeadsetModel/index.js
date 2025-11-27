@@ -9,7 +9,7 @@ import { easing } from "maath";
 export default function ThreeScene() {
     const Model = (props) => {
         const mesh = useRef();
-        const { scene } = useGLTF("/models/blender.glb");
+        const { scene } = useGLTF(`${process.env.PUBLIC_URL}/models/blender.glb`);
         const [dummy] = useState(() => new THREE.Object3D());
         const mousePosition = useRef({ x: 0, y: 0 });
         const { viewport } = useThree();
